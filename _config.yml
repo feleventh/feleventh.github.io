@@ -1,7 +1,7 @@
 markdown: rdiscount
 permalink: /:year/:month/:day/:title/
-url: http://blog.nswebfrog.com
-author: nswebfrog
+url: http://feleventh.github.io
+author: feleventh
 highlighter: pygments
 exclude: ["Rakefile", "CNAME", "README.md"]
 safe: true
