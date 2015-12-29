@@ -19,7 +19,8 @@ Express 4 不再依赖 Connect，并且从核心中移除了所有内建的中�
 * 基于模块的文档来使用模块
 
 这里举个例子，bodyParser和static中间件的使用
-``javascript
+
+```javascript
 //express3.x
 app.use(express.bodyParser());
 app.use(express.static(path.join(__dirname, '/bower_components')));
