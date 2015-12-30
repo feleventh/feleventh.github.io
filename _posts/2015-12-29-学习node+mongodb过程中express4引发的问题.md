@@ -37,6 +37,7 @@ app.use(serveStatic(__dirname + '/bower_components'));
 
 #### Express 3 中的中间件中对应 Express 4 中的模块可查看[这个网站](http://daringfireball.net/projects/markdown/syntax)。
 
+
 ### app.use 可接受参数
 
 在 Express 4 中，现在你可以使用带有一个可变参数的路径来加载中间件，并且从路由处理器中读取参数的值，例如：
