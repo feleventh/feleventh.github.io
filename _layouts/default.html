@@ -8,7 +8,6 @@
     <link href="/feed/" rel="alternate" title="{{ site.author }}" type="application/atom+xml" />
     <link rel="stylesheet" href="/media/css/style.css">
     <link rel="stylesheet" href="/media/css/highlight.css">
-    <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
     <script type="text/javascript" src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
   </head>
   <script type="text/javascript">
@@ -38,43 +37,25 @@
 		}
   </script>
   <body onLoad="setInterval(setTimeSpan,1000);">
-
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
-             <!-- Brand and toggle get grouped for better mobile display -->
-              <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/favicon.png">Brand</a>
-              </div> <!-- end navbar-header -->
-          <!-- Collect the nav links, forms, and other content for toggling -->
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                  <li class="active"><a href="../">Home <span class="sr-only">(current)</span></a></li>
-                  <li><a href="../categories/" >Categories</a></li>
-                  <li><a href="../tags/">Tags</a></li>
-                  <li><a href="../about/">About</a></li>
-                  <li><a href="../feed/">Subscribe</a></li>
-                </ul>
-              </div>  <!-- end collapse -->
-            </div> <!-- end container-fluid -->
-      </nav>
     <div id="container">
       <div id="main" role="main">
-      <header>
+        <header>
         <h1>{{ page.title }}</h1>
-      </header>
-
+        </header>
+        <nav>
+        <span><a title="home page" class="" href="/">Home</a></span>
+        <span><a title="categories" class="" href="/categories/">Categories</a></span>
+        <span><a title="tags" class="" href="/tags/">Tags</a></span>
+        <span><a title="about" class="" href="/about/">About</a></span>
+        <!-- <span><a title="links" class="" href="/links/">Links</a></span> -->
+        <span><a title="subscribe by RSS" class="" href="/feed/">Subscribe</a></span>
+        </nav>
         <article class="content">
         {{ content }}
         </article>
       </div>
 
-    <footer class="footer navbar-fixed-bottom bs-docs-footer">
+    <footer>
         <p><small>Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a> & <a href="http://pages.github.com">GitHub</a> | Copyright 2012 - {{site.time | date:"%Y"}} by <a href="/about/">feleventh</a> | <span class="label label-info" id="timeSpan"></span></small></p>
     </footer>
 
