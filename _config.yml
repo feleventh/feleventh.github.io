@@ -1,8 +1,43 @@
-markdown: rdiscount
-permalink: /:year/:month/:day/:title/
-url: http://feleventh.github.io
-author: feleventh
-highlighter: pygments
-exclude: ["Rakefile", "CNAME", "README.md"]
-safe: true
-paginate: 16
+
+# Site settings
+title: Zhang Chi - Front End Developer
+description: A blog about Front End Development
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
+
+# User settings
+username: Zhang Chi
+user_description: Front End Developer
+email: feleventh@hotmail.com
+twitter_username: feleventh
+github_username:  feleventh
+gplus_username:  feleventh
+disqus_username: feleventh
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:title/
+
+
+# html minify
+compress_html:
+  clippings: all
+  comments: all
+  endings: []
+  profile: false
+
+# Links to include in menu navigation
+# For external links add external: true
+links:
+  - title: Home
+    url: /
+  - title: Series
+    url: /series
+  - title: Tags
+    url: /tags
+  - title: About Me
+    url: /about
+
+# exclude my node related stuff
+exclude: ['package.json', 'src', 'node_modules']

@@ -1,9 +1,14 @@
 ---
 layout: post
 title:  "学习node+mongodb过程中express4引发的问题"
-description:  "学习node+mongodb过程中express4引发的问题"
-categories:  essay
-tags: [node]
+categories: jekyll update
+description: "express4 中间件"
+main-class: 'dev'
+color: '#637a91'
+tags:
+- "jekyll"
+twitter_text: "学习node+mongodb过程中express4引发的问题"
+introduction: "Express4不再依赖中间件,app.use 可接受参数,直接是使用app.listen()就可启动服务，app.configure被移除等等..."
 ---
 
 在当前的node学习资源中，大部分都是基于express3.x来讲解的，而express已经进入4.x时代（Express是一个基于 Node.js 平台，快速、开放、极简的 web 开发框架）。
