@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "学习node+mongodb过程中express4引发的问题"
-categories: jekyll update
+categories: mean-stack
 description: "express4 中间件"
 main-class: 'dev'
 color: '#637a91'
