@@ -66,6 +66,7 @@ Jquery也在不但地迭代更新，不断进步。目前稳定版本已经更�
 </body>
 </html>
 ```
-#### 图片img的src属性
+
+####  图片img的src属性
 使用attr()和prop()来获取img元素的src属性时，会得到不同的路径值，还是在上面例子中，在浏览器控制台中分别使用attr()和prop()打出src属性值，发现分别为`./assets/img/on-img.svg`
 和`file:///D:/GitHub/Test/assets/img/on-img.svg`，这就说明，attr()获取的是相对路径值，而prop（）获取的是绝对路径值。不过本例都是在chrome48.0中的结果，大家有兴趣可以试一试其他浏览器中的效果。
