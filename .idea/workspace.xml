@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="385306c9-ad8c-4245-b803-2382ddac736e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2015-12-17-学习使用jekyll搭建博客.md" afterPath="$PROJECT_DIR$/_posts/2015-12-17-学习使用jekyll搭建博客.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2015-12-29-学习node+mongodb过程中express4引发的问题.md" afterPath="$PROJECT_DIR$/_posts/2015-12-29-学习node+mongodb过程中express4引发的问题.md" />
-    </list>
+    <list default="true" id="385306c9-ad8c-4245-b803-2382ddac736e" name="Default" comment="" />
     <ignored path="feleventh.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -271,7 +268,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../github/geetest-demo" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
@@ -285,12 +282,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1473392732335</updated>
-      <workItem from="1473392733773" duration="1440000" />
+      <workItem from="1473392733773" duration="2048000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1440000" />
+    <option name="totallyTimeSpent" value="2048000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
