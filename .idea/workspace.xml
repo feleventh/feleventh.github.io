@@ -2,27 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="385306c9-ad8c-4245-b803-2382ddac736e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_includes/comments.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/about/index.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/categories/index.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/feed/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/guestbook/index.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/links/index.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/css/highlight.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/css/home.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/css/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/js/highlight.pack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/js/jquery.tagcloud.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/index.md" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/404.md" afterPath="$PROJECT_DIR$/404.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_config.yml" afterPath="$PROJECT_DIR$/_config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_layouts/default.html" afterPath="$PROJECT_DIR$/_layouts/default.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_layouts/page.html" afterPath="$PROJECT_DIR$/_layouts/page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_layouts/post.html" afterPath="$PROJECT_DIR$/_layouts/post.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2015-12-17-学习使用jekyll搭建博客.md" afterPath="$PROJECT_DIR$/_posts/2015-12-17-学习使用jekyll搭建博客.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2015-12-29-学习node+mongodb过程中express4引发的问题.md" afterPath="$PROJECT_DIR$/_posts/2015-12-29-学习node+mongodb过程中express4引发的问题.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/main.css" afterPath="$PROJECT_DIR$/assets/css/main.css" />
     </list>
     <ignored path="feleventh.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -82,11 +63,21 @@
           </provider>
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="75">
-                <caret line="10" column="87" selection-start-line="10" selection-start-column="87" selection-end-line="10" selection-end-column="87" />
+              <first_editor relative-caret-position="45">
+                <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
                 <folding />
               </first_editor>
               <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/css/main.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="0" column="9247" selection-start-line="0" selection-start-column="9247" selection-end-line="0" selection-end-column="9247" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -142,6 +133,7 @@
         <option value="$PROJECT_DIR$/_includes/footer.html" />
         <option value="$PROJECT_DIR$/404.md" />
         <option value="$PROJECT_DIR$/_posts/2015-12-17-学习使用jekyll搭建博客.md" />
+        <option value="$PROJECT_DIR$/assets/css/main.css" />
         <option value="$PROJECT_DIR$/_posts/2015-12-29-学习node+mongodb过程中express4引发的问题.md" />
       </list>
     </option>
@@ -293,12 +285,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1473392732335</updated>
-      <workItem from="1473392733773" duration="920000" />
+      <workItem from="1473392733773" duration="1166000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="920000" />
+    <option name="totallyTimeSpent" value="1166000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -404,6 +396,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="0" column="9247" selection-start-line="0" selection-start-column="9247" selection-end-line="0" selection-end-column="9247" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2015-12-17-学习使用jekyll搭建博客.md">
       <provider editor-type-id="MarkdownFxPreviewEditor">
         <state />
@@ -424,8 +424,8 @@
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="75">
-            <caret line="10" column="87" selection-start-line="10" selection-start-column="87" selection-end-line="10" selection-end-column="87" />
+          <first_editor relative-caret-position="45">
+            <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
             <folding />
           </first_editor>
           <second_editor />

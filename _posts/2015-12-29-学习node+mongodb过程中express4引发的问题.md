@@ -6,7 +6,7 @@ description: "express4 中间件"
 main-class: 'dev'
 color: '#637a91'
 tags:
-- "jekyll"
+- "express"
 twitter_text: "学习node+mongodb过程中express4引发的问题"
 introduction: "Express4不再依赖中间件,app.use 可接受参数,直接是使用app.listen()就可启动服务，app.configure被移除等等..."
 ---
