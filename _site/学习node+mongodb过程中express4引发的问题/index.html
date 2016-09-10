@@ -131,20 +131,20 @@
 
 <p>这里举个例子，bodyParser和static中间件的使用</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//express3.x</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">bodyParser</span><span class="p">());</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="kr">static</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'/bower_components'</span><span class="p">)));</span>
+<p>```javascript
+//express3.x
+app.use(express.bodyParser());
+app.use(express.static(path.join(__dirname, ‘/bower_components’)));</p>
 
-<span class="c1">//express4.x</span>
-<span class="kd">var</span> <span class="nx">bodyParser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'body-parser'</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">serveStatic</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'serve-static'</span><span class="p">);</span>
+<p>//express4.x
+var bodyParser = require(‘body-parser’);
+var serveStatic = require(‘serve-static’);</p>
 
-<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">require</span><span class="p">(</span><span class="s1">'body-parser'</span><span class="p">).</span><span class="nx">urlencoded</span><span class="p">({</span><span class="na">extended</span><span class="p">:</span> <span class="kc">true</span><span class="p">}));</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">serveStatic</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">'/bower_components'</span><span class="p">));</span>
-<span class="c1">//注意，dirname前面是2个下划线，</span>
-</code></pre>
-</div>
+<p>app.use(require(‘body-parser’).urlencoded({extended: true}));
+app.use(bodyParser.json());
+app.use(serveStatic(__dirname + ‘/bower_components’));
+//注意，dirname前面是2个下划线，
+```</p>
 
 <h4 id="express-3--express-4-httpdaringfireballnetprojectsmarkdownsyntax">Express 3 中的中间件中对应 Express 4 中的模块可查看<a href="http://daringfireball.net/projects/markdown/syntax">这个网站</a>。</h4>
 
@@ -152,13 +152,13 @@
 
 <p>在 Express 4 中，现在你可以使用带有一个可变参数的路径来加载中间件，并且从路由处理器中读取参数的值，例如：</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">'/book/:id'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">,</span><span class="nx">next</span><span class="p">){</span>
-   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'ID:'</span><span class="p">,</span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
-   <span class="nx">next</span><span class="p">();</span>
-<span class="p">})</span>
-</code></pre>
-</div>
-<h4 id="express4xexpressrouterhttpapplistenappconfigureexpress4xhttpwwwexpressjscomcn4xapihtmlhttpwwwexpressjscomcn4xapihtml">另外Express4.x还有很多新的特性和改变，如新加入express.router类，不再需要http模块来启动，直接是使用app.listen()就可启动服务，app.configure被移除等等，具体可以查看<a href="[http://www.expressjs.com.cn/4x/api.html](http://www.expressjs.com.cn/4x/api.html)">express4.x中文文档</a>。</h4>
+<p><code class="highlighter-rouge">javascript
+app.use('/book/:id',function(req,res,next){
+   console.log('ID:',req.params.id);
+   next();
+})
+</code>
+#### 另外Express4.x还有很多新的特性和改变，如新加入express.router类，不再需要http模块来启动，直接是使用app.listen()就可启动服务，app.configure被移除等等，具体可以查看<a href="[http://www.expressjs.com.cn/4x/api.html](http://www.expressjs.com.cn/4x/api.html)">express4.x中文文档</a>。</p>
 
             </article>
 

@@ -149,10 +149,10 @@
 
 <p>终于来到核心步骤，使用gem安装jekyll，运行gem install jekyll即可进行安装，但是这里有个Madhur Ahuja没有提到的坑——gem使用的是asw服务器在国内会出现fetchError也就是连接不到服务器，所以下载不了。不过有gem使用经验的人（如使用gem下载sass或rails的过程中也会出现这一问题），早就有了解决办法——使用淘宝团队的ruby镜像服务器来替代</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/
+<p><code class="highlighter-rouge">
+$ gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/
 $ gem sources -l
-</code></pre>
-</div>
+</code></p>
 
 <h3 id="jekyll-1">使用jekyll开始博客项目</h3>
 
