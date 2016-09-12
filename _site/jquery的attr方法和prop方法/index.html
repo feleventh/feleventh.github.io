@@ -133,43 +133,43 @@
 可见，attr()是不能获取到checked属性的。虽然attr()不能获取到checked属性，却可以用来改变checked属性，但我不见你这里使用attr()来改变checkbox的checked属性，因为在一些低版本的浏览器中可能会出现兼容性问题。
 同时，在需要使checkbox取消选中状态时，也不建议使用removeProp来实现，这样可能在一些浏览器中永久性删除checked属性而导致通过prop不能再添加上checked属性。</p>
 
-<p>```html
-&lt;!DOCTYPE html&gt;</p>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>jquery-attr-prop</title>
-</head>
-<body>
-  <h1>jquery的attr()方法和prop()方法</h1>
-  <ul>
-      <li><label><input type="checkbox" />apple</label></li>
-      <li><label><input type="checkbox" />orange</label></li>
-      <li><label><input type="checkbox" />banana</label></li>
-  </ul>
-  <p><label><input type="checkbox" />selete all fruit</label></p>
-  <p><img src="./assets/img/on-img.svg" alt="" width="200px" height="50px" /></p>
-  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-  <script>
-    $('p input').change(function(event) {
-      var $this = $(this);
-      console.log($this.prop('checked'));
-      console.log($this.attr('checked'));
-      if($this.prop('checked')){
-        $('li input').prop('checked',true);
-        //$('li input').attr('checked',true);
-      }else{
-        $('li input').prop('checked',false);
-        //$('li input').removeProp('checked');
-        //$('li input').removeAttr('checked');
-      }
-    });
-    console.log($('img').attr('src'));
-    console.log($('img').prop('src'));
-  </script>
-</body>
-</html>
-<p>```</p>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;title&gt;</span>jquery-attr-prop<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>jquery的attr()方法和prop()方法<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;ul&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;label&gt;&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>apple<span class="nt">&lt;/label&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;label&gt;&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>orange<span class="nt">&lt;/label&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;label&gt;&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>banana<span class="nt">&lt;/label&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+  <span class="nt">&lt;p&gt;&lt;label&gt;&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>selete all fruit<span class="nt">&lt;/label&gt;&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;&lt;img</span> <span class="na">src=</span><span class="s">"./assets/img/on-img.svg"</span> <span class="na">alt=</span><span class="s">""</span> <span class="na">width=</span><span class="s">"200px"</span> <span class="na">height=</span><span class="s">"50px"</span><span class="nt">&gt;&lt;/p&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./node_modules/jquery/dist/jquery.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script&gt;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'p input'</span><span class="p">).</span><span class="nx">change</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">$this</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">$this</span><span class="p">.</span><span class="nx">prop</span><span class="p">(</span><span class="s1">'checked'</span><span class="p">));</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">$this</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'checked'</span><span class="p">));</span>
+      <span class="k">if</span><span class="p">(</span><span class="nx">$this</span><span class="p">.</span><span class="nx">prop</span><span class="p">(</span><span class="s1">'checked'</span><span class="p">)){</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">'li input'</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s1">'checked'</span><span class="p">,</span><span class="kc">true</span><span class="p">);</span>
+        <span class="c1">//$('li input').attr('checked',true);</span>
+      <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">'li input'</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s1">'checked'</span><span class="p">,</span><span class="kc">false</span><span class="p">);</span>
+        <span class="c1">//$('li input').removeProp('checked');</span>
+        <span class="c1">//$('li input').removeAttr('checked');</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">'img'</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'src'</span><span class="p">));</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">'img'</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s1">'src'</span><span class="p">));</span>
+  <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
 
 <h4 id="imgsrc">图片img的src属性</h4>
 <p>使用attr()和prop()来获取img元素的src属性时，会得到不同的路径值，还是在上面例子中，在浏览器控制台中分别使用attr()和prop()打出src属性值，发现分别为<code class="highlighter-rouge">./assets/img/on-img.svg</code>
@@ -179,7 +179,7 @@
 
             <section class="share">
     <h3>Share</h3>
-    <a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;jquery的attr方法和prop方法&quot;%20/jquery%E7%9A%84attr%E6%96%B9%E6%B3%95%E5%92%8Cprop%E6%96%B9%E6%B3%95/%20via%20&#64;feleventh&hashtags=jquery,"
+    <!--<a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;jquery的attr方法和prop方法&quot;%20/jquery%E7%9A%84attr%E6%96%B9%E6%B3%95%E5%92%8Cprop%E6%96%B9%E6%B3%95/%20via%20&#64;feleventh&hashtags=jquery,"
     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
         <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
     </a>
@@ -190,7 +190,16 @@
     <a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=/jquery%E7%9A%84attr%E6%96%B9%E6%B3%95%E5%92%8Cprop%E6%96%B9%E6%B3%95/"
     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
         <svg class="icon icon-google-plus"><use xlink:href="#icon-google-plus"></use></svg>
-    </a>
+    </a>-->
+    <!-- JiaThis Button BEGIN -->
+    <div class="jiathis_style_32x32">
+        <a class="jiathis_button_qzone"></a>
+        <a class="jiathis_button_tsina"></a>
+        <a class="jiathis_button_weixin"></a>
+        <a class="jiathis_counter_style"></a>
+    </div>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+    <!-- JiaThis Button END -->
 </section>
             <section class="author" itemprop="author">
     <div class="details" itemscope itemtype="http://schema.org/Person">
@@ -207,8 +216,13 @@
 
             <section class="comments">
     <h3>Comments</h3>
-    <div id="disqus_thread"></div>
+    <!--<div id="disqus_thread"></div>-->
+    <div id="uyan_frame"></div>
 </section>
+
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js"></script>
+
+<!--
 <script type="text/javascript">
     var disqus_loaded = false;
 
@@ -231,6 +245,7 @@
         }
     };
 </script>
+-->
 
             <footer>
     <p>Made with <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> and <span class="love">❤</span> by <a href="http://feleventh.github.io">Zhang Chi</a></p>
