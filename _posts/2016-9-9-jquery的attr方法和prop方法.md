@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "jquery的attr方法和prop方法"
-categories: html-css
+categories: jQuery
 description: "jquery的attr方法和prop方法"
 main-class: 'dev'
 color: '#637a91'
