@@ -4,3 +4,6 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
     color: rgb(255,66,66);
     border: 1px solid rgb(255,66,66);
 }
+.share .jiathis_style_32x32 .jiathis_counter.jiathis_bubble_style{
+    width: 60px !important;
+}
