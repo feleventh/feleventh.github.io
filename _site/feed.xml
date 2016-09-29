@@ -5,9 +5,75 @@
     <description>A blog about Front End Development</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 12 Sep 2016 16:27:39 +0800</pubDate>
-    <lastBuildDate>Mon, 12 Sep 2016 16:27:39 +0800</lastBuildDate>
+    <pubDate>Thu, 29 Sep 2016 09:08:41 +0800</pubDate>
+    <lastBuildDate>Thu, 29 Sep 2016 09:08:41 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>使用正则表达式编写表单验证插件</title>
+        <description>&lt;p&gt;表单的验证是前端开发中经常遇到的一个问题。表单的验证分为客户端验证和服务器验证。 通常情况下，只有验证用户名、密码是否正确等需要读取数据库数据的验证才在服务器端进行验证，而对字符的长度、大小写等字符格式的验证在客户端就能进行。 在客户端使用javascript进行验证能减少服务器负载，缩短用户等待时间，对用户更友好。比较知名的js表单验证插件有validate.js、jFormer、jQuery.validVal等等。 使用正则表达式就能打造自己的jQuery表单验证插件。&lt;/p&gt; &lt;h3 id=&quot;section&quot;&gt;表单验证的关键——正则表达式&lt;/h3&gt; &lt;p&gt;判断用户输入的值是否符合尺寸、大小写、字符规则就需要使用正则表达式RegExp。RegExp 对象提供了test()方法来检测字符串是否符合正则表达式模式的规范。&lt;/p&gt; &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;isMobile&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ele&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tipText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;RegExp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^(13|15|18|14|17)[0-9]{9}$&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)?&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;formTips&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ele&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tipText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isPhone&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ele&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tipText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;RegExp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^([0-9]{3,4}-)?[0-9]{7,8}$&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)?&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;formTips&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ele&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tipText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isEmail&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ele&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tipText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span...</description>
+        <pubDate>Wed, 28 Sep 2016 00:00:00 +0800</pubDate>
+        <link>/%E4%BD%BF%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BC%96%E5%86%99%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81%E6%8F%92%E4%BB%B6/</link>
+        <guid isPermaLink="true">/%E4%BD%BF%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BC%96%E5%86%99%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81%E6%8F%92%E4%BB%B6/</guid>
+        
+        <category>表单验证</category>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>css3实现平行四边形框效果</title>
+        <description>&lt;p&gt;利用CSS3可以不依赖图片资源就能制作出各式各样的形状、图形和动画。 平行四边形也是一种常常出现在网页上的表现形式，使用CSS3可以制作出各种平行四边形，平行四边形的文本、图片甚至是动画。&lt;/p&gt; &lt;h3 id=&quot;css3&quot;&gt;CSS3如何制作平行四边形？&lt;/h3&gt; &lt;p&gt;使用CSS3 &lt;code class=&quot;highlighter-rouge&quot;&gt;transform&lt;/code&gt;的&lt;code class=&quot;highlighter-rouge&quot;&gt;skew&lt;/code&gt;属性可以将一个矩形变为非90度直角的平行四边形。 如下代码所示，是一个简单的平行四边形，使用skew属性为这个平行四边形向左倾斜30度。 注意，transform的变形是默认已元素的中心位置来进行，倾斜、旋转等变形的。 设置transform-origin能改变形的基准点，下例是将左上角设为基准点，否则会由于从中心点倾斜导致平行四边形向左偏移。&lt;/p&gt; &lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.parallelogram-simple&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;200px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;transform-origin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;skew&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;30deg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;rgb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;192&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;165&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt; &lt;/div&gt; &lt;h3 id=&quot;css3-1&quot;&gt;CSS3制作包含图片和文字的的平行四边形&lt;/h3&gt; &lt;p&gt;如下图，是一个包含有文字和图片的平行四边形，上半部分是图片，下半部分是文字描述。 &lt;img src=&quot;../assets/img/2016-9-22-1.jpg&quot; alt=&quot;包含有文字和图片的平行四边形&quot; /&gt;&lt;/p&gt; &lt;p&gt;在发生transform的skew变形后，里面的图片和文字也会发生相同的倾斜角度， 在此基础上再将平行四边形里面的图片和文字向相反的方向倾斜相同的角度，就可使他们恢复在正常显示的效果。 通过设置平行四边形的overflow值为overflow，可以使图片只显示平行四边形里面的内容，从而达到显示出平行四边形图片的效果。 scss代码如下：&lt;/p&gt; &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.parallelogram-more{ width: 120px; height: 200px; transform-origin: 0 0; transform: skew(30deg); background: #00c0a5; position: relative; overflow: hidden; &lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;&amp;gt;*{ transform-origin: 0 0; transform: skew(-30deg); position: relative;...</description>
+        <pubDate>Thu, 22 Sep 2016 00:00:00 +0800</pubDate>
+        <link>/css3%E5%AE%9E%E7%8E%B0%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E6%A1%86%E6%95%88%E6%9E%9C/</link>
+        <guid isPermaLink="true">/css3%E5%AE%9E%E7%8E%B0%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E6%A1%86%E6%95%88%E6%9E%9C/</guid>
+        
+        <category>css3几何形状</category>
+        
+        
+        <category>css3</category>
+        
+      </item>
+    
+      <item>
+        <title>使用jQuery制作轮播图</title>
+        <description>&lt;p&gt;轮播图是网页以模拟循环播放幻灯片的形式展示图片以及其他包含丰富内容的一种常用工具，为站点添加了灵活的响应式表现形式。 在网络上，我们可以找到很多其他开发者开发好了轮播插件，bootstrap等UI框架也早就集成了轮播插件（如bootstrap的carousel.js）。为了弄清轮播图的原理，我借助jQuery尝试动手制作了自己的轮播图插件。&lt;/p&gt; &lt;h3 id=&quot;section&quot;&gt;轮播图的基本原理&lt;/h3&gt; &lt;h4 id=&quot;positionrelative&quot;&gt;position的relative属性&lt;/h4&gt; &lt;p&gt;我们先假设一个轮播的简单使用场景————三张图片的向左轮播。如下图所示，三个蓝色框代表图片依次向左循环移动，而只有绿色框对我们是可见的，这就形成了一个简单的轮播。&lt;/p&gt; &lt;p&gt;&lt;img src=&quot;../assets/img/2016-9-19-1.png&quot; alt=&quot;轮播的简单使用场景原理图&quot; /&gt;&lt;/p&gt; &lt;p&gt;我们将最外层绿色展现框div.slide-wrap的position属性设置为relative或者absolute，包含三张图片的div.panel必须的宽度尽可能大，让三张图片附在容器上，当我们把div.slide-wrap的长宽设置为1张图片的长宽，并设置overflow为hidden， 这就让三张图片自有一张是可见的。而要是这三张图片向左滑动，则只需使用javascript让ul每隔一段时间向左移动一个图片的宽度，即left属性值减去一个图片的宽。&lt;/p&gt; &lt;pre&gt;&lt;code class=&quot;language-jade&quot;&gt;// jade格式 div.slide-wrap div.panel a(href='/') img(src='images/company-slide1.jpg') a(href='/users') img(src='images/company-slide2.jpg') a(href='/heart') img(src='images/company-slide3.jpg') // scss格式 .slide-wrap{ width: 557px; height: 361px; position: relative; overflow: hidden; .panel{ @extend .slide-wrap; width: 2900px; left: -557px; img{ display: inline-block; float: left; position: relative; } } &lt;/code&gt;&lt;/pre&gt; &lt;h4 id=&quot;settimeout&quot;&gt;使用setTimeout实现图片的自动滑动&lt;/h4&gt; &lt;p&gt;在做好布局后，就需要使用setTimeout来实现图片的自动滑动，但当我们使用setTimeout无线循环播放图片时，会发现向左滑动完三张图片后，就没图片了。 当滑倒第三个图片后，这时就需要设置重新将这三张图片移到起点。但即便这样，最后一张图片重新滑到第一张图片时候，还会产生一个空白滑过的情况。 可以通过将首尾2张图片分别使用&lt;code class=&quot;highlighter-rouge&quot;&gt;$().clone()&lt;/code&gt;将其复制一份，将最后一张图片复制一份到第一张图片前面，将第一张图片复制一份到最后一张图片的后面，这样就解决了这个问题。 js代码如下：&lt;/p&gt; &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;firstDom&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'.panel a:first'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;clone&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lastDom&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'.panel a:last'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span...</description>
+        <pubDate>Mon, 19 Sep 2016 00:00:00 +0800</pubDate>
+        <link>/%E4%BD%BF%E7%94%A8jQuery%E5%88%B6%E4%BD%9C%E8%BD%AE%E6%92%AD%E5%9B%BE/</link>
+        <guid isPermaLink="true">/%E4%BD%BF%E7%94%A8jQuery%E5%88%B6%E4%BD%9C%E8%BD%AE%E6%92%AD%E5%9B%BE/</guid>
+        
+        <category>jquery轮播</category>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>我是怎样走上程序员这条路的？</title>
+        <description>&lt;p&gt;2016年4月25日，我开始了我人生第一次正式的工作，做一名程序员。当现在差不多快半年了，分享一下我是怎样从财经学校的电子商务专业走上程序员这条路的。&lt;/p&gt;
+
+&lt;p&gt;在高三时，我从一本杂志上都到了马云的事迹，但是心潮澎湃就决定了去读电子商务。当我大三的时候去蹭了几家企业的校招会场，却发现不知道该去从事哪一种职业。于是，选择读研来慢慢思考这个问题。我在研一的时候去了一家创业孵化机构旗下的&lt;a href=&quot;http://www.72bit.cn&quot;&gt;网站www.72bit.cn&lt;/a&gt;去做网站编辑的兼职。做了大概10个月，在那里发生的一些事让我决定离开，也促使我决定去做一名程序员。&lt;/p&gt;
+
+&lt;p&gt;那接下来我为从事编程工作，做了哪些准备呢？
+刚开始，我在一些mooc网站上进行学习IT技能，诸如慕课网，微软MVA、channel9以及codecademy等网站认识到了编程。因为对于像我这样IT基础薄弱的人来说，光是看网络教程也仅仅只能达到认识阶段。随后，我慢慢发现那些计算机基础知识的重要性，开始从图书馆借来《数据结构与算法》、《编译原理》、《操作系统原理》等基础课程的书来学习。当然编写一些简单的demo也成了我当时的仅有的上手编程练习。直到我的导师介绍了一个学校行为金融实验室的有关税收实验的小型web项目，才真正开始了我的编程生涯。&lt;/p&gt;
+
+&lt;p&gt;随后我也一直在闲暇时间去学习编程，然后在研二的暑假我去了深圳一家&lt;a href=&quot;http://www.bibibaba.cn/&quot;&gt;小型互联网公司www.bibibaba.cn&lt;/a&gt;(他们家官网做得很炫)做前端开发的实习，从此走上了Web前端开发这条路。毕业之后我也顺利进入了一家上市软件公司从事前端开发，之后又跳槽到一家电子商务公司，也就是我现在工作的单位，主要工作内容就是开发公司旗下的电子商务网站————&lt;a href=&quot;http://www.lcgt.cn&quot;&gt;乐从钢铁世界www.lcgt.cn&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;对于那些打算尝试一下程序员工作非计算机类专业的在读大学生来说，希望我的经历能给你们带来一些参考和更多的选择。&lt;/p&gt;
+</description>
+        <pubDate>Mon, 12 Sep 2016 00:00:00 +0800</pubDate>
+        <link>/%E6%88%91%E6%98%AF%E6%80%8E%E6%A0%B7%E8%B5%B0%E4%B8%8A%E7%A8%8B%E5%BA%8F%E5%91%98%E8%BF%99%E6%9D%A1%E8%B7%AF%E7%9A%84/</link>
+        <guid isPermaLink="true">/%E6%88%91%E6%98%AF%E6%80%8E%E6%A0%B7%E8%B5%B0%E4%B8%8A%E7%A8%8B%E5%BA%8F%E5%91%98%E8%BF%99%E6%9D%A1%E8%B7%AF%E7%9A%84/</guid>
+        
+        <category>my career</category>
+        
+        
+        <category>career</category>
+        
+      </item>
     
       <item>
         <title>jquery的attr方法和prop方法</title>
@@ -19,7 +85,7 @@
         <category>jquery</category>
         
         
-        <category>html-css</category>
+        <category>jQuery</category>
         
       </item>
     

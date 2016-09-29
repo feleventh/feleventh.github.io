@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>学习node+mongodb过程中express4引发的问题</title>
-    <meta name="description" content="express4 中间件">
+    <title>使用jQuery制作轮播图</title>
+    <meta name="description" content="使用jQuery制作轮播图">
 
     <!-- Google Authorship Markup -->
     <link rel="author" href="https://plus.google.com/+feleventh?rel=author">
@@ -14,24 +14,24 @@
     <!-- Social: Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@feleventh">
-    <meta name="twitter:title" content="学习node+mongodb过程中express4引发的问题">
-    <meta name="twitter:description" content="express4 中间件">
+    <meta name="twitter:title" content="使用jQuery制作轮播图">
+    <meta name="twitter:description" content="使用jQuery制作轮播图">
     
     <meta property="twitter:image:src" content="/assets/img/blog-image.png">
     
 
     <!-- Social: Facebook / Open Graph -->
-    <meta property="og:url" content="/%E5%AD%A6%E4%B9%A0node+mongodb%E8%BF%87%E7%A8%8B%E4%B8%ADexpress4%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98/">
-    <meta property="og:title" content="学习node+mongodb过程中express4引发的问题">
+    <meta property="og:url" content="/%E4%BD%BF%E7%94%A8jQuery%E5%88%B6%E4%BD%9C%E8%BD%AE%E6%92%AD%E5%9B%BE/">
+    <meta property="og:title" content="使用jQuery制作轮播图">
     
     <meta property="og:image" content="/assets/img/blog-image.png">
     
-    <meta property="og:description" content="express4 中间件">
+    <meta property="og:description" content="使用jQuery制作轮播图">
     <meta property="og:site_name" content="Zhang Chi - Front End Developer">
 
     <!-- Social: Google+ / Schema.org  -->
-    <meta itemprop="name" content="学习node+mongodb过程中express4引发的问题"/>
-    <meta itemprop="description" content="express4 中间件">
+    <meta itemprop="name" content="使用jQuery制作轮播图"/>
+    <meta itemprop="description" content="使用jQuery制作轮播图">
     <meta itemprop="image" content="/assets/img/blog-image.png"/>
 
     <!-- Favicon -->
@@ -54,10 +54,10 @@
     <meta name="msapplication-wide310x150logo" content="widetile.png" />
     <meta name="msapplication-square310x310logo" content="largetile.png" />
     <!-- Android Lolipop Theme Color -->
-    <meta name="theme-color" content="#637a91">
+    <meta name="theme-color" content="#632321">
 
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="/%E5%AD%A6%E4%B9%A0node+mongodb%E8%BF%87%E7%A8%8B%E4%B8%ADexpress4%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98/">
+    <link rel="canonical" href="/%E4%BD%BF%E7%94%A8jQuery%E5%88%B6%E4%BD%9C%E8%BD%AE%E6%92%AD%E5%9B%BE/">
     <link rel="alternate" type="application/rss+xml" title="Zhang Chi - Front End Developer" href="/feed.xml" />
 </head>
 
@@ -106,73 +106,102 @@
 <header class="header-post" role="banner">
      <div class="content">
         
-            <time itemprop="datePublished" datetime="2015-12-29T00:00:00+08:00" class="date">29 Dec 2015</time>
+            <time itemprop="datePublished" datetime="2016-09-19T00:00:00+08:00" class="date">19 Sep 2016</time>
         
-        <h1 class="post-title" itemprop="name">学习node+mongodb过程中express4引发的问题</h1>
-        <p itemprop="description" class="subtitle">express4 中间件</p>
+        <h1 class="post-title" itemprop="name">使用jQuery制作轮播图</h1>
+        <p itemprop="description" class="subtitle">使用jQuery制作轮播图</p>
     </div>
 </header>
         <section class="post">
 
             <article role="article" id="post" class="post-content" itemprop="articleBody">
-                <p>在当前的node学习资源中，大部分都是基于express3.x来讲解的，而express已经进入4.x时代（Express是一个基于 Node.js 平台，快速、开放、极简的 web 开发框架）。</p>
+                <p>轮播图是网页以模拟循环播放幻灯片的形式展示图片以及其他包含丰富内容的一种常用工具，为站点添加了灵活的响应式表现形式。
+在网络上，我们可以找到很多其他开发者开发好了轮播插件，bootstrap等UI框架也早就集成了轮播插件（如bootstrap的carousel.js）。为了弄清轮播图的原理，我借助jQuery尝试动手制作了自己的轮播图插件。</p>
 
-<h3 id="express4">Express4不再依赖中间件</h3>
+<h3 id="section">轮播图的基本原理</h3>
+<h4 id="positionrelative">position的relative属性</h4>
+<p>我们先假设一个轮播的简单使用场景————三张图片的向左轮播。如下图所示，三个蓝色框代表图片依次向左循环移动，而只有绿色框对我们是可见的，这就形成了一个简单的轮播。</p>
 
-<p>Express 4 不再依赖 Connect，并且从核心中移除了所有内建的中间件，这意味着 Express 现在是一个不依赖路由和中间件的 Web 框架。</p>
+<p><img src="../assets/img/2016-9-19-1.png" alt="轮播的简单使用场景原理图" /></p>
 
-<p>随着内建的中间件被移除，你必须显式添加所有依赖的中间件来运行你的应用，简单来说需要以下步骤：</p>
+<p>我们将最外层绿色展现框div.slide-wrap的position属性设置为relative或者absolute，包含三张图片的div.panel必须的宽度尽可能大，让三张图片附在容器上，当我们把div.slide-wrap的长宽设置为1张图片的长宽，并设置overflow为hidden，
+这就让三张图片自有一张是可见的。而要是这三张图片向左滑动，则只需使用javascript让ul每隔一段时间向左移动一个图片的宽度，即left属性值减去一个图片的宽。</p>
 
-<ul>
-  <li>安装模块：npm install –save 模块名称</li>
-  <li>在你的应用中，使用这个模块： require( 模块名称 )</li>
-  <li>基于模块的文档来使用模块</li>
-</ul>
+<pre><code class="language-jade">// jade格式
+div.slide-wrap
+    div.panel
+        a(href='/')
+            img(src='images/company-slide1.jpg')
+        a(href='/users')
+            img(src='images/company-slide2.jpg')
+        a(href='/heart')
+            img(src='images/company-slide3.jpg')
 
-<p>这里举个例子，bodyParser和static中间件的使用</p>
+// scss格式
+.slide-wrap{
+    width: 557px;
+    height: 361px;
+    position: relative;
+    overflow: hidden;
+    .panel{
+      @extend .slide-wrap;
+      width: 2900px;
+      left: -557px;
+      img{
+        display: inline-block;
+        float: left;
+        position: relative;
+      }
+    }
+</code></pre>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//express3.x</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">bodyParser</span><span class="p">());</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="kr">static</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'/bower_components'</span><span class="p">)));</span>
+<h4 id="settimeout">使用setTimeout实现图片的自动滑动</h4>
+<p>在做好布局后，就需要使用setTimeout来实现图片的自动滑动，但当我们使用setTimeout无线循环播放图片时，会发现向左滑动完三张图片后，就没图片了。
+当滑倒第三个图片后，这时就需要设置重新将这三张图片移到起点。但即便这样，最后一张图片重新滑到第一张图片时候，还会产生一个空白滑过的情况。
+可以通过将首尾2张图片分别使用<code class="highlighter-rouge">$().clone()</code>将其复制一份，将最后一张图片复制一份到第一张图片前面，将第一张图片复制一份到最后一张图片的后面，这样就解决了这个问题。
+js代码如下：</p>
 
-<span class="c1">//express4.x</span>
-<span class="kd">var</span> <span class="nx">bodyParser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'body-parser'</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">serveStatic</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'serve-static'</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">index</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nx">t</span><span class="o">=</span><span class="s1">''</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">firstDom</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'.panel a:first'</span><span class="p">).</span><span class="nx">clone</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">lastDom</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'.panel a:last'</span><span class="p">).</span><span class="nx">clone</span><span class="p">();</span>
+<span class="nx">firstDom</span><span class="p">.</span><span class="nx">appendTo</span><span class="p">(</span><span class="s1">'.panel'</span><span class="p">);</span><span class="c1">// clone the first img to append it to the panel</span>
+<span class="nx">lastDom</span><span class="p">.</span><span class="nx">prependTo</span><span class="p">(</span><span class="s1">'.panel'</span><span class="p">);</span><span class="c1">// clone the first img to append it to the panel</span>
 
-<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">require</span><span class="p">(</span><span class="s1">'body-parser'</span><span class="p">).</span><span class="nx">urlencoded</span><span class="p">({</span><span class="na">extended</span><span class="p">:</span> <span class="kc">true</span><span class="p">}));</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">serveStatic</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">'/bower_components'</span><span class="p">));</span>
-<span class="c1">//注意，dirname前面是2个下划线，</span>
+<span class="kd">var</span> <span class="nx">sliderAuto</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span><span class="nx">$</span><span class="p">(</span><span class="s1">'.panel img'</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span>
+    <span class="nx">index</span> <span class="o">=</span> <span class="nx">index</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">index</span> <span class="o">&lt;</span> <span class="nx">num</span><span class="p">){</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">'.panel'</span><span class="p">).</span><span class="nx">animate</span><span class="p">({</span><span class="na">left</span><span class="p">:</span> <span class="o">-</span><span class="mi">557</span><span class="o">*</span><span class="nx">index</span><span class="p">},</span> <span class="mi">500</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){}</span> <span class="p">);</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="nx">index</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">'.panel'</span><span class="p">).</span><span class="nx">css</span><span class="p">({</span><span class="na">left</span><span class="p">:</span> <span class="o">-</span><span class="mi">557</span><span class="p">});</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">'.panel'</span><span class="p">).</span><span class="nx">animate</span><span class="p">({</span><span class="na">left</span><span class="p">:</span> <span class="o">-</span><span class="mi">557</span><span class="o">*</span><span class="nx">index</span><span class="p">},</span> <span class="mi">500</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){}</span> <span class="p">);</span>
+        
+    <span class="p">}</span>
+    <span class="nx">t</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="s2">"sliderAuto()"</span><span class="p">,</span> <span class="mi">2000</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">$</span><span class="p">().</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">sliderAuto</span><span class="p">();</span>
+<span class="p">});</span>
 </code></pre>
 </div>
-
-<h4 id="express-3--express-4-httpdaringfireballnetprojectsmarkdownsyntax">Express 3 中的中间件中对应 Express 4 中的模块可查看<a href="http://daringfireball.net/projects/markdown/syntax">这个网站</a>。</h4>
-
-<h3 id="appuse-">app.use 可接受参数</h3>
-
-<p>在 Express 4 中，现在你可以使用带有一个可变参数的路径来加载中间件，并且从路由处理器中读取参数的值，例如：</p>
-
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">'/book/:id'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">,</span><span class="nx">next</span><span class="p">){</span>
-   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'ID:'</span><span class="p">,</span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
-   <span class="nx">next</span><span class="p">();</span>
-<span class="p">})</span>
-</code></pre>
-</div>
-<h4 id="express4xexpressrouterhttpapplistenappconfigureexpress4xhttpwwwexpressjscomcn4xapihtmlhttpwwwexpressjscomcn4xapihtml">另外Express4.x还有很多新的特性和改变，如新加入express.router类，不再需要http模块来启动，直接是使用app.listen()就可启动服务，app.configure被移除等等，具体可以查看<a href="[http://www.expressjs.com.cn/4x/api.html](http://www.expressjs.com.cn/4x/api.html)">express4.x中文文档</a>。</h4>
+<h4 id="section-1">继续优化</h4>
+<p>做好上面工作后，还可以向轮播图添加手动点击滑动按钮等功能。另外，我们上面的图片是固定的三个，还可以是很多张图片，轮播的内容也不仅仅只是图片，还可以是其他的富媒体内容。
+在最后，我们还可以尝试使用<code class="highlighter-rouge">jquery.fn.extend()</code>来封装成可复用的jquery插件。</p>
 
             </article>
 
             <section class="share">
     <h3>分享到：(Share)</h3>
-    <!--<a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;学习node+mongodb过程中express4引发的问题&quot;%20/%E5%AD%A6%E4%B9%A0node+mongodb%E8%BF%87%E7%A8%8B%E4%B8%ADexpress4%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98/%20via%20&#64;feleventh&hashtags=express,"
+    <!--<a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;使用jQuery制作轮播图&quot;%20/%E4%BD%BF%E7%94%A8jQuery%E5%88%B6%E4%BD%9C%E8%BD%AE%E6%92%AD%E5%9B%BE/%20via%20&#64;feleventh&hashtags=jquery轮播,"
     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
         <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
     </a>
-    <a aria-label="Share on Facebook"href="https://www.facebook.com/sharer/sharer.php?u=/%E5%AD%A6%E4%B9%A0node+mongodb%E8%BF%87%E7%A8%8B%E4%B8%ADexpress4%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98/"
+    <a aria-label="Share on Facebook"href="https://www.facebook.com/sharer/sharer.php?u=/%E4%BD%BF%E7%94%A8jQuery%E5%88%B6%E4%BD%9C%E8%BD%AE%E6%92%AD%E5%9B%BE/"
     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
         <svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>
     </a>
-    <a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=/%E5%AD%A6%E4%B9%A0node+mongodb%E8%BF%87%E7%A8%8B%E4%B8%ADexpress4%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98/"
+    <a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=/%E4%BD%BF%E7%94%A8jQuery%E5%88%B6%E4%BD%9C%E8%BD%AE%E6%92%AD%E5%9B%BE/"
     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
         <svg class="icon icon-google-plus"><use xlink:href="#icon-google-plus"></use></svg>
     </a>-->
@@ -217,7 +246,7 @@
         disqus_loaded = true;
         var disqus_shortname = 'feleventh';
         var disqus_title = '';
-        var disqus_url = '/%E5%AD%A6%E4%B9%A0node+mongodb%E8%BF%87%E7%A8%8B%E4%B8%ADexpress4%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98/';
+        var disqus_url = '/%E4%BD%BF%E7%94%A8jQuery%E5%88%B6%E4%BD%9C%E8%BD%AE%E6%92%AD%E5%9B%BE/';
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);

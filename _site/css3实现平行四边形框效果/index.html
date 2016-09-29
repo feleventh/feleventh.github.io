@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>学习node+mongodb过程中express4引发的问题</title>
-    <meta name="description" content="express4 中间件">
+    <title>css3实现平行四边形框效果</title>
+    <meta name="description" content="利用CSS3制作平行四边形">
 
     <!-- Google Authorship Markup -->
     <link rel="author" href="https://plus.google.com/+feleventh?rel=author">
@@ -14,24 +14,24 @@
     <!-- Social: Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@feleventh">
-    <meta name="twitter:title" content="学习node+mongodb过程中express4引发的问题">
-    <meta name="twitter:description" content="express4 中间件">
+    <meta name="twitter:title" content="css3实现平行四边形框效果">
+    <meta name="twitter:description" content="利用CSS3制作平行四边形">
     
     <meta property="twitter:image:src" content="/assets/img/blog-image.png">
     
 
     <!-- Social: Facebook / Open Graph -->
-    <meta property="og:url" content="/%E5%AD%A6%E4%B9%A0node+mongodb%E8%BF%87%E7%A8%8B%E4%B8%ADexpress4%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98/">
-    <meta property="og:title" content="学习node+mongodb过程中express4引发的问题">
+    <meta property="og:url" content="/css3%E5%AE%9E%E7%8E%B0%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E6%A1%86%E6%95%88%E6%9E%9C/">
+    <meta property="og:title" content="css3实现平行四边形框效果">
     
     <meta property="og:image" content="/assets/img/blog-image.png">
     
-    <meta property="og:description" content="express4 中间件">
+    <meta property="og:description" content="利用CSS3制作平行四边形">
     <meta property="og:site_name" content="Zhang Chi - Front End Developer">
 
     <!-- Social: Google+ / Schema.org  -->
-    <meta itemprop="name" content="学习node+mongodb过程中express4引发的问题"/>
-    <meta itemprop="description" content="express4 中间件">
+    <meta itemprop="name" content="css3实现平行四边形框效果"/>
+    <meta itemprop="description" content="利用CSS3制作平行四边形">
     <meta itemprop="image" content="/assets/img/blog-image.png"/>
 
     <!-- Favicon -->
@@ -54,10 +54,10 @@
     <meta name="msapplication-wide310x150logo" content="widetile.png" />
     <meta name="msapplication-square310x310logo" content="largetile.png" />
     <!-- Android Lolipop Theme Color -->
-    <meta name="theme-color" content="#637a91">
+    <meta name="theme-color" content="#632321">
 
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="/%E5%AD%A6%E4%B9%A0node+mongodb%E8%BF%87%E7%A8%8B%E4%B8%ADexpress4%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98/">
+    <link rel="canonical" href="/css3%E5%AE%9E%E7%8E%B0%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E6%A1%86%E6%95%88%E6%9E%9C/">
     <link rel="alternate" type="application/rss+xml" title="Zhang Chi - Front End Developer" href="/feed.xml" />
 </head>
 
@@ -106,73 +106,182 @@
 <header class="header-post" role="banner">
      <div class="content">
         
-            <time itemprop="datePublished" datetime="2015-12-29T00:00:00+08:00" class="date">29 Dec 2015</time>
+            <time itemprop="datePublished" datetime="2016-09-22T00:00:00+08:00" class="date">22 Sep 2016</time>
         
-        <h1 class="post-title" itemprop="name">学习node+mongodb过程中express4引发的问题</h1>
-        <p itemprop="description" class="subtitle">express4 中间件</p>
+        <h1 class="post-title" itemprop="name">css3实现平行四边形框效果</h1>
+        <p itemprop="description" class="subtitle">利用CSS3制作平行四边形</p>
     </div>
 </header>
         <section class="post">
 
             <article role="article" id="post" class="post-content" itemprop="articleBody">
-                <p>在当前的node学习资源中，大部分都是基于express3.x来讲解的，而express已经进入4.x时代（Express是一个基于 Node.js 平台，快速、开放、极简的 web 开发框架）。</p>
+                <p>利用CSS3可以不依赖图片资源就能制作出各式各样的形状、图形和动画。
+平行四边形也是一种常常出现在网页上的表现形式，使用CSS3可以制作出各种平行四边形，平行四边形的文本、图片甚至是动画。</p>
 
-<h3 id="express4">Express4不再依赖中间件</h3>
+<h3 id="css3">CSS3如何制作平行四边形？</h3>
+<p>使用CSS3 <code class="highlighter-rouge">transform</code>的<code class="highlighter-rouge">skew</code>属性可以将一个矩形变为非90度直角的平行四边形。
+如下代码所示，是一个简单的平行四边形，使用skew属性为这个平行四边形向左倾斜30度。
+注意，transform的变形是默认已元素的中心位置来进行，倾斜、旋转等变形的。
+设置transform-origin能改变形的基准点，下例是将左上角设为基准点，否则会由于从中心点倾斜导致平行四边形向左偏移。</p>
 
-<p>Express 4 不再依赖 Connect，并且从核心中移除了所有内建的中间件，这意味着 Express 现在是一个不依赖路由和中间件的 Web 框架。</p>
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nc">.parallelogram-simple</span><span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">200px</span><span class="p">;</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
+  <span class="nl">transform-origin</span><span class="p">:</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">skew</span><span class="p">(</span><span class="m">30deg</span><span class="p">);</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">192</span><span class="p">,</span><span class="m">165</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h3 id="css3-1">CSS3制作包含图片和文字的的平行四边形</h3>
+<p>如下图，是一个包含有文字和图片的平行四边形，上半部分是图片，下半部分是文字描述。
+<img src="../assets/img/2016-9-22-1.jpg" alt="包含有文字和图片的平行四边形" /></p>
 
-<p>随着内建的中间件被移除，你必须显式添加所有依赖的中间件来运行你的应用，简单来说需要以下步骤：</p>
+<p>在发生transform的skew变形后，里面的图片和文字也会发生相同的倾斜角度，
+在此基础上再将平行四边形里面的图片和文字向相反的方向倾斜相同的角度，就可使他们恢复在正常显示的效果。
+通过设置平行四边形的overflow值为overflow，可以使图片只显示平行四边形里面的内容，从而达到显示出平行四边形图片的效果。
+scss代码如下：</p>
 
-<ul>
-  <li>安装模块：npm install –save 模块名称</li>
-  <li>在你的应用中，使用这个模块： require( 模块名称 )</li>
-  <li>基于模块的文档来使用模块</li>
-</ul>
-
-<p>这里举个例子，bodyParser和static中间件的使用</p>
-
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">//express3.x</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">bodyParser</span><span class="p">());</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="kr">static</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'/bower_components'</span><span class="p">)));</span>
-
-<span class="c1">//express4.x</span>
-<span class="kd">var</span> <span class="nx">bodyParser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'body-parser'</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">serveStatic</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'serve-static'</span><span class="p">);</span>
-
-<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">require</span><span class="p">(</span><span class="s1">'body-parser'</span><span class="p">).</span><span class="nx">urlencoded</span><span class="p">({</span><span class="na">extended</span><span class="p">:</span> <span class="kc">true</span><span class="p">}));</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">serveStatic</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">'/bower_components'</span><span class="p">));</span>
-<span class="c1">//注意，dirname前面是2个下划线，</span>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>.parallelogram-more{ 
+  width: 120px;
+  height: 200px;
+  transform-origin: 0 0;
+  transform: skew(30deg);
+  background: #00c0a5;
+  position: relative;
+  overflow: hidden;
+  <span class="err">&amp;</span>&gt;*{
+    transform-origin: 0 0;
+    transform: skew(-30deg);
+    position: relative;
+  }
+  p{
+    width: 80px;
+    left: 30px;
+  }
+}
+         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"parallelogram-more"</span><span class="nt">&gt;</span>
+           <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"assets/img/widetile.png"</span> <span class="na">alt=</span><span class="s">""</span> <span class="na">width=</span><span class="s">"200"</span> <span class="na">height=</span><span class="s">"120"</span><span class="nt">&gt;</span>
+           <span class="nt">&lt;p&gt;</span>a parallelogram<span class="nt">&lt;/p&gt;</span>
+         <span class="nt">&lt;/div&gt;</span>
 </code></pre>
 </div>
 
-<h4 id="express-3--express-4-httpdaringfireballnetprojectsmarkdownsyntax">Express 3 中的中间件中对应 Express 4 中的模块可查看<a href="http://daringfireball.net/projects/markdown/syntax">这个网站</a>。</h4>
+<h3 id="css3-2">CSS3制作平行四边形风格的翻页</h3>
+<p>翻页是网站中常见的功能模块，翻页的样式也多种多样，使用平行四边形能创建别具一格的翻页样式，如下图。
+<img src="../assets/img/2016-9-22-2.jpg" alt="平行四边形风格的翻页" /></p>
 
-<h3 id="appuse-">app.use 可接受参数</h3>
+<p>使用平行四边形结合三角形就行达到如上图的效果。
+中间部分的div是平行四边形，最前面和最后面一个都是用普通的div结合三角形构造成的直角梯形。
+原理基本与上面的两个例子相同，就不再赘述，代码如下：</p>
 
-<p>在 Express 4 中，现在你可以使用带有一个可变参数的路径来加载中间件，并且从路由处理器中读取参数的值，例如：</p>
-
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">'/book/:id'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">,</span><span class="nx">next</span><span class="p">){</span>
-   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'ID:'</span><span class="p">,</span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
-   <span class="nx">next</span><span class="p">();</span>
-<span class="p">})</span>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"parallelogram-page"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"first-page active"</span><span class="nt">&gt;&lt;span&gt;</span>1<span class="nt">&lt;/span&gt;&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"middle-page"</span><span class="nt">&gt;&lt;span&gt;</span>2<span class="nt">&lt;/span&gt;&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"middle-page"</span><span class="nt">&gt;&lt;span&gt;</span>3<span class="nt">&lt;/span&gt;&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"middle-page"</span><span class="nt">&gt;&lt;span&gt;</span>4<span class="nt">&lt;/span&gt;&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"middle-page"</span><span class="nt">&gt;&lt;span&gt;</span>5<span class="nt">&lt;/span&gt;&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"next-page"</span><span class="nt">&gt;&lt;span&gt;</span>next<span class="nt">&lt;/span&gt;&lt;/a&gt;</span>
+  <span class="nt">&lt;div&gt;</span>···<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"last-page"</span><span class="nt">&gt;&lt;span&gt;</span>last<span class="nt">&lt;/span&gt;&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+.parallelogram-page{
+  <span class="err">&amp;</span>::after{
+    display: block;
+    content: '';
+    clear: both;
+  }
+  a{
+    display: block;
+    float: left;
+    height: 20px;
+    margin-right: 10px;
+    text-decoration: none;
+    background: #00c0a5;
+    <span class="err">&amp;</span>.active, <span class="err">&amp;</span>:hover{
+      color: #fff;
+    }
+  }
+  div{
+    float: left;
+  }
+  .middle-page{
+    width: 40px;
+    transform-origin: 0 0;
+    transform: skew(30deg);
+    position: relative;
+    span{
+      display: block;
+      transform-origin: 0 0;
+      transform: skew(-30deg);
+      position: relative;
+      left: 22px;
+    }
+  }
+  .first-page{
+    width: 30px;
+    position: relative;
+    margin-right: 12px;
+    span{
+      display: block;
+      text-align: center;
+    }
+    <span class="err">&amp;</span>::after{
+      display: inline-block;
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -12px;
+      border-top: 10px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 10px solid #00c0a5;
+      border-left: 6px solid #00c0a5;
+    }
+  }
+  .next-page{
+    width: 40px;
+    position: relative;
+    margin-left: 12px;
+    <span class="err">&amp;</span>::before{
+      display: inline-block;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -12px;
+      border-top: 10px solid #00c0a5;
+      border-right: 6px solid #00c0a5;
+      border-bottom: 10px solid transparent;
+      border-left: 6px solid transparent;
+    }
+    span{
+      display: block;
+      text-align: center;
+    }
+  }
+  .last-page{
+    width: 40px;
+    span{
+      display: block;
+      text-align: center;
+    }
+  }
+}
 </code></pre>
 </div>
-<h4 id="express4xexpressrouterhttpapplistenappconfigureexpress4xhttpwwwexpressjscomcn4xapihtmlhttpwwwexpressjscomcn4xapihtml">另外Express4.x还有很多新的特性和改变，如新加入express.router类，不再需要http模块来启动，直接是使用app.listen()就可启动服务，app.configure被移除等等，具体可以查看<a href="[http://www.expressjs.com.cn/4x/api.html](http://www.expressjs.com.cn/4x/api.html)">express4.x中文文档</a>。</h4>
 
             </article>
 
             <section class="share">
     <h3>分享到：(Share)</h3>
-    <!--<a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;学习node+mongodb过程中express4引发的问题&quot;%20/%E5%AD%A6%E4%B9%A0node+mongodb%E8%BF%87%E7%A8%8B%E4%B8%ADexpress4%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98/%20via%20&#64;feleventh&hashtags=express,"
+    <!--<a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;css3实现平行四边形框效果&quot;%20/css3%E5%AE%9E%E7%8E%B0%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E6%A1%86%E6%95%88%E6%9E%9C/%20via%20&#64;feleventh&hashtags=css3几何形状,"
     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
         <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
     </a>
-    <a aria-label="Share on Facebook"href="https://www.facebook.com/sharer/sharer.php?u=/%E5%AD%A6%E4%B9%A0node+mongodb%E8%BF%87%E7%A8%8B%E4%B8%ADexpress4%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98/"
+    <a aria-label="Share on Facebook"href="https://www.facebook.com/sharer/sharer.php?u=/css3%E5%AE%9E%E7%8E%B0%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E6%A1%86%E6%95%88%E6%9E%9C/"
     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
         <svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>
     </a>
-    <a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=/%E5%AD%A6%E4%B9%A0node+mongodb%E8%BF%87%E7%A8%8B%E4%B8%ADexpress4%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98/"
+    <a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=/css3%E5%AE%9E%E7%8E%B0%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E6%A1%86%E6%95%88%E6%9E%9C/"
     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
         <svg class="icon icon-google-plus"><use xlink:href="#icon-google-plus"></use></svg>
     </a>-->
@@ -217,7 +326,7 @@
         disqus_loaded = true;
         var disqus_shortname = 'feleventh';
         var disqus_title = '';
-        var disqus_url = '/%E5%AD%A6%E4%B9%A0node+mongodb%E8%BF%87%E7%A8%8B%E4%B8%ADexpress4%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98/';
+        var disqus_url = '/css3%E5%AE%9E%E7%8E%B0%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E6%A1%86%E6%95%88%E6%9E%9C/';
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
