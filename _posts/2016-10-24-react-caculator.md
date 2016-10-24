@@ -89,6 +89,87 @@ introduction: "react初体验——使用reactjs制作简易计算器web app"
   </script>
 </body>
 </html>
+<!--
+* {
+  margin: 0;
+  padding: 0;
+}
+html{
+  font-size: 62.5%;
+  font-family: "Microsoft YaHei UI";
+  height: 100%;
+}
+body{
+  font-size: 62.5%;
+  height: 100%;
+}
+input,button,textarea{
+  outline: none;
+}
+
+.container{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.page{
+  box-shadow: inset 0 0 .5rem .5rem #666;
+  position: relative;
+  padding: 1rem;
+  width: 20rem;
+  height: 33rem;
+  margin: 2rem auto;
+  &::after{
+    content: 'feleventh';
+    display: block;
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+  }
+}
+.screen{
+  width: 20rem;
+  height: 6rem;
+  box-shadow: inset 0 0 .2rem .2rem #666;
+  margin: 1rem 0 0;
+  input{
+    width: 18rem;
+    height: 4rem;
+    border: none;
+    padding: .5rem;
+    margin: .5rem;
+    text-align: right;
+    font-size: 2rem;
+  }
+}
+.key-container{
+  width: 20rem;
+  height: 25rem;
+  position: relative;
+}
+button{
+  width: 5rem;
+  height: 5rem;
+  box-shadow: inset 0 0 .4rem .5rem #666;
+  border-radius: .4rem;
+  background: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.key-wrap{
+  position: absolute;
+  top: .5rem;
+  left: 0;
+  width: 20rem;
+  height: 20rem;
+  .key-clear,.key-enter,.key-0{
+    width: 10rem;
+  }
+}
+-->
 ```
 
 
