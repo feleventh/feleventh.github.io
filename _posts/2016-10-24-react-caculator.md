@@ -172,5 +172,6 @@ button{
 -->
 ```
 
-
+reactjs的理念是彻底抛弃DOM，完全组件化，使用虚拟DOM来渲染内容。按照这个理念，`div.container`、`div.screen`这些html元素都应该是使用组件来替代的。
+这里为了代码简单就没有使用。DEMO详细代码见我的Github项目[reactjsLearning](//github.com/feleventh/reactjsLearning/tree/master/demo_caculator)。
 
