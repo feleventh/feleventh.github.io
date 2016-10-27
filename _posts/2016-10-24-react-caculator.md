@@ -15,6 +15,8 @@ introduction: "react初体验——使用reactjs制作简易计算器web app"
 我决定先从当下最热门的reactjs开始入手，在今年内对这三大框架进行一个系统的学习。于是有了今天这个计算器的demo。
 ![react-caculator](../assets/img/2016-10-24.jpg)
 如下图所示，使用Key组件来将所有计算器的按键render到`.key-container`容器中去，并在组件中给所有按键赋予规定的文本值，并绑定点击事件。
+其中`=`按键绑定的时间方法，直接使用`eval()`来进行对结果的计算。
+key组件内部的`render方法`通过对存储按键文本值的数组进行`map`循环来渲染出计算器的所有按键。
 
 ```html
 <!DOCTYPE html>
@@ -89,7 +91,14 @@ introduction: "react初体验——使用reactjs制作简易计算器web app"
   </script>
 </body>
 </html>
-<!--
+```
+
+在样式风格设计上，直接使用box-shadow的边框阴影来模拟按键的轮廓。
+如果最求更3D立体化的效果，还可以使用CSS3的`radial-gradient`渐变色和`perspective`来模拟光影效果，让立体感更加真实。
+详细样式如下：
+
+```css
+/* scss样式代码 */
 * {
   margin: 0;
   padding: 0;
@@ -169,7 +178,7 @@ button{
     width: 10rem;
   }
 }
--->
+
 ```
 
 reactjs的理念是彻底抛弃DOM，完全组件化，使用虚拟DOM来渲染内容。按照这个理念，`div.container`、`div.screen`这些html元素都应该是使用组件来替代的。
