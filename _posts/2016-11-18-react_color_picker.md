@@ -493,4 +493,5 @@ function hslToRgb(h, s, l){//0-1的小数
   }
 ```
 
-### 完整源代码请查看我的github的[reactjsLearning项目](//github.com/feleventh/reactjsLearning/tree/master/color_picker/)
+### 完整源代码请查看我的github的[reactjsLearning项目](//github.com/feleventh/reactjsLearning/tree/master/color_picker/), 
+[demo演示](//feleventh.github.io/reactjsLearning/color_picker/color_picker.html)。
