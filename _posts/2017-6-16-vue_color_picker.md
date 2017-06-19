@@ -11,7 +11,7 @@ twitter_text: "去年我使用react编写了chrome控制台风格的取色器，
 introduction: "去年我使用react编写了chrome控制台风格的取色器，现在使用vue重写chrome风格取色器"
 ---
 
-去年我使用react编写了chrome控制台风格的取色器，现在使用vue重写[chrome风格取色器](://feleventh.github.io/react_color_picker/)，基本实现了相同的功能。
+去年我使用react编写了chrome控制台风格的取色器，现在使用vue重写[chrome风格取色器](//feleventh.github.io/react_color_picker/)，基本实现了相同的功能。
 但由于vue.js与react.js的区别，具体实现上也有了较大区别。
 ![Chrome风格取色器](../assets/img/2017-6-16-1.jpg)
 
@@ -171,7 +171,8 @@ mounted: function () {
 ```
 
 #### watch方法
-在watch方法内，监听rgba计算属性，当rgba改变时，立即重新渲染取色矩形canvas
+在watch方法内，监听rgba计算属性，当rgba改变时，立即重新渲染取色矩形canvas。
+监听的属性不能过多，最初还监听了x，y的属性改变时，随之改变pickRgb的值，从而导致数据混乱。
 ```javascript
 watch: {
       rgba: function () {
@@ -183,7 +184,7 @@ watch: {
 ```
 
 #### 其他代码
-完整项目代码详见我的github项目[3air](://github.com/feleventh/3air/tree/master/src/components)
+完整项目代码详见我的github项目[3air](//github.com/feleventh/3air/tree/master/src/components)
 
 ```javascript
 methods: {
